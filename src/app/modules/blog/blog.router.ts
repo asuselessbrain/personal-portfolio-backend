@@ -3,7 +3,8 @@ import { blogController } from './blog.controller';
 
 const blogRoute = express.Router();
 
-blogRoute.get('/', blogController.getAllBlogs)
+blogRoute.get('/', blogController.getAllBlogs);
+blogRoute.get('/:id', blogController.getSingBlog);
 blogRoute.post('/', blogController.createBlog);
 // blogRoute.put('/:id', )
 // blogRoute.delete('/:id', )

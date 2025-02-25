@@ -7,11 +7,17 @@ const createBlogInDD = async (data: IBlog) => {
 };
 
 const getAllBlogsFromDb = async () => {
-    const result = await Blog.find();
-    return result;
-  };
+  const result = await Blog.find();
+  return result;
+};
+
+const getSingBlogFromDb = async (id: string) => {
+  const result = await Blog.findById(id);
+  return result;
+};
 
 export const blogServices = {
-    createBlogInDD,
-    getAllBlogsFromDb
-}
+  createBlogInDD,
+  getAllBlogsFromDb,
+  getSingBlogFromDb
+};
