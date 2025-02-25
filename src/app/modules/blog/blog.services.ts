@@ -6,6 +6,12 @@ const createBlogInDD = async (data: IBlog) => {
   return result;
 };
 
+const getAllBlogsFromDb = async () => {
+    const result = await Blog.find();
+    return result;
+  };
+
 export const blogServices = {
     createBlogInDD,
+    getAllBlogsFromDb
 }

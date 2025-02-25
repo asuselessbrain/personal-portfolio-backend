@@ -18,6 +18,23 @@ const createBlog = async (req: Request, res: Response) => {
   }
 };
 
+const getAllBlogs = async (req: Request, res: Response) => {
+    try {
+      const result = await blogServices.getAllBlogsFromDb();
+      res.status(200).json({
+        success: true,
+        message: 'All blogs retrieved successfully',
+        data: result,
+      });
+    } catch (err) {
+      res.status(500).json({
+        success: false,
+        message: 'Failed to get blog',
+      });
+    }
+  };
+
 export const blogController = {
   createBlog,
+  getAllBlogs
 };
