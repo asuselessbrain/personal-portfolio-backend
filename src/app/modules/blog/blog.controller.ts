@@ -51,8 +51,27 @@ const getSingBlog = async (req: Request, res: Response) => {
   }
 };
 
+const updateBlog = async (req: Request, res: Response) => {
+    try {
+      const blogId = req.params.id;
+      const data = req.body;
+      const result = await blogServices.updateBlogInDB(blogId, data);
+      res.status(200).json({
+        success: true,
+        message: 'Blog updated successfully',
+        data: result,
+      });
+    } catch (err) {
+      res.status(500).json({
+        success: false,
+        message: 'Failed to update blog',
+      });
+    }
+  };
+
 export const blogController = {
   createBlog,
   getAllBlogs,
-  getSingBlog
+  getSingBlog,
+  updateBlog
 };

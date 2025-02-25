@@ -16,8 +16,16 @@ const getSingBlogFromDb = async (id: string) => {
   return result;
 };
 
+const updateBlogInDB = async (id: string, data: IBlog) => {
+  const result = await Blog.findByIdAndUpdate({ _id: id }, data, {
+    new: true,
+  });
+  return result;
+};
+
 export const blogServices = {
   createBlogInDD,
   getAllBlogsFromDb,
-  getSingBlogFromDb
+  getSingBlogFromDb,
+  updateBlogInDB,
 };
