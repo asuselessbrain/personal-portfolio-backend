@@ -23,9 +23,15 @@ const updateBlogInDB = async (id: string, data: IBlog) => {
   return result;
 };
 
+const deleteBlogFromDB = async (id: string) => {
+  const result = await Blog.findByIdAndDelete({ _id: id });
+  return result;
+};
+
 export const blogServices = {
   createBlogInDD,
   getAllBlogsFromDb,
   getSingBlogFromDb,
   updateBlogInDB,
+  deleteBlogFromDB,
 };
