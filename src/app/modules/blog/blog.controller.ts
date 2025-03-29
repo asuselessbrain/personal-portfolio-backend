@@ -44,7 +44,7 @@ const getSingBlog = async (req: Request, res: Response) => {
     res.status(200).json({
       success: true,
       message: 'Single blog retrieved successfully',
-      error: result,
+      data: result,
     });
   } catch (err) {
     res.status(500).json({
